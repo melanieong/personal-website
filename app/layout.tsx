@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "lenis/dist/lenis.css";
+import { SiteMotion } from "@/components/site-motion";
 
 export const metadata: Metadata = {
   title: "Melanie Ong | Accountant and Artist",
@@ -14,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><a className="skip-link" href="#main">Skip to content</a><SiteMotion />{children}</body>
     </html>
   );
 }

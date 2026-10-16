@@ -5,9 +5,9 @@ import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const sections = [
+  { label: "Education", href: "/#education" },
   { label: "Projects", href: "/#projects" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Interests", href: "/#interests" },
+  { label: "Hobbies", href: "/#interests" },
   { label: "Contact", href: "/#contact" },
 ];
 
