@@ -1283,3 +1283,117 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+/* Motion enhances the native document flow; content never depends on it. */
+html.motion-enabled { scroll-behavior: auto; }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 20;
+  padding: 12px 18px;
+  color: var(--white);
+  background: var(--forest-deep);
+  transform: translateY(-180%);
+}
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; }
+
+.hero-link svg, .hero-cta svg, .text-link svg, .contact-link svg, .back-link svg {
+  transition: transform 400ms cubic-bezier(.25, 1, .5, 1);
+}
+.hero-link:hover svg { transform: translateY(3px); }
+.hero-cta:hover svg, .text-link:hover svg, .contact-link:hover svg { transform: translate(3px, -3px); }
+.back-link:hover svg { transform: translateX(-3px); }
+
+@media (min-width: 992px) and (prefers-reduced-motion: no-preference) {
+  .hero-image {
+    inset: -6% 0;
+    animation: none;
+    transform: translate3d(0, var(--hero-drift, 0px), 0) scale(1.025);
+  }
+  .hero-content { animation: none; }
+  .hero-content > * { animation: rise-in 1.2s cubic-bezier(.25, 1, .5, 1) both; }
+  .hero-content > :nth-child(2) { animation-delay: 100ms; }
+  .hero-content > :nth-child(3) { animation-delay: 200ms; }
+  .hero-content > :nth-child(4) { animation-delay: 300ms; }
+}
+
+/* Touch screens get a readable project list instead of a long pinned track. */
+@media (max-width: 991px), (prefers-reduced-motion: reduce) {
+  .garden-gallery { height: auto !important; padding: 64px 0; }
+  .garden-scene {
+    position: relative; top: auto; display: flex; height: auto; min-height: 0;
+    flex-direction: column; gap: 34px; overflow: visible;
+  }
+  .garden-heading, .garden-horizon, .garden-groundline {
+    position: relative; inset: auto; width: 84%; margin: 0 auto;
+  }
+  .garden-heading { order: -2; }
+  .garden-horizon { order: -1; }
+  .garden-count { display: none; }
+  .garden-plot {
+    position: relative; inset: auto; width: 84% !important; max-width: 620px;
+    height: auto !important; min-height: 300px; margin: 0 auto;
+    opacity: 1 !important; transform: none !important; will-change: auto;
+  }
+  .garden-bed { position: relative; padding: 32px 0 20px; }
+  .market-ticket {
+    position: relative; top: auto; left: auto; width: 86%; margin: 0 auto;
+    opacity: 1; transform: none !important;
+  }
+  .carrot-top { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  .water-drops { display: none; }
+}
+
+/* Server-rendered fallback before the gallery measures its viewport. */
+
+  .garden-gallery.is-static { height: auto !important; padding: 64px 0; }
+  .garden-gallery.is-static .garden-scene {
+    position: relative; top: auto; display: flex; height: auto; min-height: 0;
+    flex-direction: column; gap: 34px; overflow: visible;
+  }
+  .garden-gallery.is-static .garden-heading, .garden-gallery.is-static .garden-horizon, .garden-gallery.is-static .garden-groundline {
+    position: relative; inset: auto; width: 84%; margin: 0 auto;
+  }
+  .garden-gallery.is-static .garden-heading { order: -2; }
+  .garden-gallery.is-static .garden-horizon { order: -1; }
+  .garden-gallery.is-static .garden-count { display: none; }
+  .garden-gallery.is-static .garden-plot {
+    position: relative; inset: auto; width: 84% !important; max-width: 620px;
+    height: auto !important; min-height: 300px; margin: 0 auto;
+    opacity: 1 !important; transform: none !important; will-change: auto;
+  }
+  .garden-gallery.is-static .garden-bed { position: relative; padding: 32px 0 20px; }
+  .garden-gallery.is-static .market-ticket {
+    position: relative; top: auto; left: auto; width: 86%; margin: 0 auto;
+    opacity: 1; transform: none !important;
+  }
+  .garden-gallery.is-static .carrot-top { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  .garden-gallery.is-static .water-drops { display: none; }
+
+.garden-gallery.is-static .garden-scene::before,
+.garden-gallery.is-static .garden-scene::after { display: none; }
+@media (max-width: 991px), (prefers-reduced-motion: reduce) {
+  .garden-scene::before, .garden-scene::after { display: none; }
+}
+
+.education-details {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  margin: 52px 0 0 10%;
+  padding-top: 28px;
+  border-top: 1px solid rgb(255 254 250 / 25%);
+}
+.education-year { margin: 6px 0 0; color: #e9a58f; font-size: 9px; letter-spacing: 1.1px; }
+.education-details h3 { margin: 0; font-family: var(--serif); font-size: clamp(25px, 3vw, 34px); font-weight: 400; }
+.education-details div > p { max-width: 480px; margin: 14px 0 0; color: rgb(255 254 250 / 75%); font-size: 13px; line-height: 1.9; }
+.hobby-list { list-style: none; counter-reset: hobbies; margin: 0; padding: 0; border-top: 1px solid rgb(255 254 250 / 25%); }
+.hobby-list li { position: relative; counter-increment: hobbies; padding: 20px 0 20px 32px; border-bottom: 1px solid rgb(255 254 250 / 25%); }
+.hobby-list li::before { content: "0" counter(hobbies); position: absolute; top: 22px; left: 0; color: #e9a58f; font-size: 9px; }
+.hobby-list h3 { margin: 0; color: var(--white); font-size: 14px; font-weight: 500; line-height: 1.6; }
+.hobby-list p { margin: 7px 0 0; color: rgb(255 254 250 / 68%); font-size: 12px; line-height: 1.8; }
+@media (max-width: 760px) {
+  .education-details { grid-template-columns: 1fr; gap: 16px; margin-left: 0; }
+}

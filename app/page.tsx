@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       <SiteNav />
-      <main>
+      <main id="main">
         <section className="hero" id="focus">
           <div className="hero-image" aria-hidden="true" />
           <div className="hero-shade" aria-hidden="true" />
@@ -45,8 +45,8 @@ export default function Home() {
               I’m a builder first and foremost. I am detail oriented and love working with others
             </p>
             <div className="hero-actions">
-              <Link className="hero-link" href="#experience">
-                A little about my work <ArrowDown aria-hidden="true" size={15} />
+              <Link className="hero-link" href="#education">
+                A little about me <ArrowDown aria-hidden="true" size={15} />
               </Link>
               <Link className="hero-cta" href="#contact">
                 Let&apos;s talk <ArrowUpRight aria-hidden="true" size={15} />
@@ -56,8 +56,6 @@ export default function Home() {
           <p className="hero-caption">A curious mind. A considered approach.</p>
           <span className="hero-index">01 / 05</span>
         </section>
-
-        <ProjectGarden projects={projects} />
 
         <section className="intro-section section-shell">
           <div className="section-marker">
@@ -80,49 +78,56 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="experience-section" id="experience">
+        <section className="experience-section" id="education">
           <div className="section-shell experience-shell">
             <div className="section-marker light-marker">
               <span className="marker-dot" />
-              <span>02 — WHERE I&apos;VE WORKED</span>
+              <span>02 — EDUCATION</span>
             </div>
             <div className="experience-heading">
-              <h2>Good work is never done alone.</h2>
-              <p>
-                The places, teams and responsibilities that have shaped the way I
-                show up.
-              </p>
+              <h2>Business meets computer science.</h2>
+              <p>Two fields, plenty of questions, and a lot to learn.</p>
             </div>
-            <div className="experience-empty">
-              <span className="experience-line" />
-              <p>
-                Every role adds something. This is where the people, lessons and
-                work behind my experience will take shape.
-              </p>
-              <span className="experience-note">EXPERIENCE, IN PROGRESS</span>
+            <div className="education-details">
+              <p className="education-year">SECOND YEAR</p>
+              <div>
+                <h3>Wilfrid Laurier University</h3>
+                <p>Honours Bachelor of Business Administration and Bachelor of Science (Computer Science)</p>
+              </div>
             </div>
           </div>
         </section>
+
+        <ProjectGarden projects={projects} />
 
         <section className="interests-section" id="interests">
           <div className="section-shell interests-shell">
             <div className="section-marker light-marker">
               <span className="marker-dot" />
-              <span>04 — OUTSIDE THE BRIEF</span>
+              <span>04 — HOBBIES</span>
             </div>
             <div className="interests-layout">
-              <h2>A life with more than one kind of curiosity.</h2>
+              <h2>When I’m not studying, you’ll often find me…</h2>
               <div className="interest-notes">
-                <p>
-                  The things that have nothing to do with a deadline often have
-                  everything to do with perspective.
-                </p>
-                <div className="interest-tags" aria-label="Interests">
-                  <span>Good conversations</span>
-                  <span>New points of view</span>
-                  <span>Making things work</span>
-                  <span>Time well spent</span>
-                </div>
+                <ol className="hobby-list">
+                  <li><h3>At the badminton courts</h3></li>
+                  <li>
+                    <h3>At the bouldering gym</h3>
+                    <p>My skin is screaming for me to stop — I won’t stop.</p>
+                  </li>
+                  <li>
+                    <h3>At the library!</h3>
+                    <p>Who knew they have so many things to rent?</p>
+                  </li>
+                  <li>
+                    <h3>At random club events</h3>
+                    <p>Free food and so many people to meet!</p>
+                  </li>
+                  <li>
+                    <h3>At the gym!</h3>
+                    <p>I dream of calisthenics every day.</p>
+                  </li>
+                </ol>
               </div>
             </div>
           </div>

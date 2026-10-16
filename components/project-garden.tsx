@@ -70,7 +70,7 @@ export function ProjectGarden({ projects }: { projects: Project[] }) {
   return (
     <section
       aria-label="Selected projects"
-      className="garden-gallery"
+      className={`garden-gallery${viewport.width ? "" : " is-static"}`}
       id="projects"
       ref={gardenRef}
       style={{ height: `${projects.length + 2}00svh` }}
@@ -78,7 +78,7 @@ export function ProjectGarden({ projects }: { projects: Project[] }) {
       <div className="garden-scene">
         <div className="garden-heading">
           <div>
-            <p className="garden-kicker">02 — FROM SEED TO STAND</p>
+            <p className="garden-kicker">03 — FROM SEED TO STAND</p>
             <h2>Ideas, grown together.</h2>
             <p className="garden-subtitle">A few things I&apos;ve been tending.</p>
           </div>
@@ -109,7 +109,6 @@ export function ProjectGarden({ projects }: { projects: Project[] }) {
 
           return (
             <article
-              aria-hidden={!isVisible}
               className={`garden-plot garden-plot-${index + 1}${isSprouted ? " is-sprouted" : ""}${isRevealed ? " is-revealed" : ""}${isWatering ? " is-watering" : ""}`}
               key={project.number}
               style={{

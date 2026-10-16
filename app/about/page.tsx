@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <>
       <SiteNav />
-      <main className="about-page">
+      <main id="main" className="about-page">
         <section className="about-hero section-shell">
           <Link className="back-link" href="/">
             <ArrowLeft aria-hidden="true" size={15} /> Back to my focus
@@ -30,7 +30,7 @@ export default function AboutPage() {
                 come from somewhere unexpected.
               </p>
               <Link className="text-link" href="/#interests">
-                A few things I&apos;m curious about <ArrowUpRight aria-hidden="true" size={15} />
+                Where to find me outside class <ArrowUpRight aria-hidden="true" size={15} />
               </Link>
             </div>
           </div>
